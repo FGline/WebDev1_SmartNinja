@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+{% block title %}Uredi sporocilo{% endblock title %}
+
+{% block specific %}
+    <div class="container">
+        <form method="post" action="/sporocilo/{{ sporocilo.key.id() }}/uredi">
+            <div class="panel panel-primary">
+                <div class="panel-heading">
+                    <h2 class="panel-title" >Uredi sporočilo</h2>
+                </div>
+                <div class="panel-body">
+                    <a>Name & Surname:</a><input name="ime_priimek" value="{{ sporocilo.ime_priimek}}">
+                    <a>Email:</a><input name="email" value="{{ sporocilo.email }}">
+                    <a>Message:</a><input name="tekst" value="{{ sporocilo.tekst }}">
+                    <button type="submit" class="btn btn-primary">OK</button>
+                </div>
+            </div>
+
+        </form>
+        <a class="btn btn-primary" href="/seznam_sporocil">
+            <span class="glyphicon glyphicon-list"></span> Seznam sporocil</a>
+    </div>
+{% endblock specific %}

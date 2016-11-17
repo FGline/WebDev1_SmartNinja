@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+{% block title %}Arhiv sporočil{% endblock title %}
+
+{% block specific %}
+<div class="container">
+    <div class="panel panel-primary">
+        <div class="panel-heading">
+            <h2 class="panel-title" >Seznam arhiviranih sporočil</h2>
+            </div>
+        <div class="panel-body">
+        {% for sporocilo in seznam %}
+            <p>Name & Surname: {{sporocilo.ime_priimek}}</p>
+            <p>Message: {{ sporocilo.tekst }}</p>
+            <a class ="btn btn-primary" href="/sporocilo/{{ sporocilo.key.id()}}"> Podrobnosti sporočila</a>
+            <br>
+        {% endfor %}
+        </div>
+    </div>
+</div>
+{% endblock specific %}
+

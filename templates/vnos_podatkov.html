@@ -1,0 +1,49 @@
+{% extends "base.html" %}
+
+{% block title %}Izbrisi sporočilo{% endblock title %}
+
+{% block specific %}
+	<div class="container">
+        <form action="/rezultat" method="post">
+            <div class="panel panel-primary">
+                <div class="panel-heading">
+                    <h2 class="panel-title" data-toggle="collapse active" data-target="#squ1">Filton Feedback Form</h2>
+                </div>
+                <div class="panel-body">
+                    <div class="form-group has-feedback">
+                                <label class="control-label"></label>
+                                <input type="text" class="form-control" placeholder="Name & surname" name = "ime_priimek"/>
+                                <i class="glyphicon glyphicon-user form-control-feedback"></i>
+                    </div>
+
+                    <div class="form-group has-feedback">
+                        <label class="control-label"></label>
+                        <input type="text" class="form-control" placeholder="Email" name = "email"/>
+                        <i class="glyphicon glyphicon-envelope form-control-feedback"></i>
+                    </div>
+                    <div class="form-group has-feedback">
+                        <label class="control-label"></label>
+                        <input type="text" class="form-control" id="narform" placeholder="Your message*" name = "tekst" required/>
+                        <i class="glyphicon glyphicon-pencil form-control-feedback"></i>
+                        <form>* Field is required.</form>
+                    </div>
+                    <!--<a type="submit" class="btn btn-default text-center center-block" id="mid-btn">Sent</a>-->
+                    <button class ="btn btn-primary" type="submit">Send</button>
+                    <br>
+                    <br>
+                </div>
+            </div>
+        </form>
+
+        {% if tekst %}
+        <div class="alert alert-success">
+            <span class="glyphicon glyphicon-ok"></span><strong> Uspesno!</strong> Sporocilo je bilo uspesno vneseno.
+        </div>
+        <div class="panel panel-primary">
+            <div class="panel-body">{{ tekst }}</div>
+            <div class="panel-footer">{{ ime_priimek }} - {{ email }}</div>
+        </div>
+        {% endif %}
+
+    </div><!--/Container-->
+{% endblock specific %}

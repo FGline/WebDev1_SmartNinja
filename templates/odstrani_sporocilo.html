@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+
+{% block title %}Odstrani sporočilo{% endblock title %}
+
+{% block specific %}
+	<div class="container">
+        <div class="panel panel-primary">
+            <div class="panel-heading">
+                <h2 class="panel-title" data-target="#squ1">Odstrani sporočilo</h2>
+            </div>
+            <div class="panel-body">
+                <h3>Ali res želiš popolnoma odstraniti to sporočilo?</h3>
+                <p>Vsebina sporočila: {{ sporocilo.tekst }}</p>
+                <form action="/sporocilo/{{ sporocilo.key.id() }}/odstrani" method="post">
+                    <button type="submit" class ="btn btn-primary" name= "odstrani"><span class="glyphicon glyphicon-remove"></span> Yes</button>
+                </form>
+                <br>
+                <button onclick="goBack()" class="btn btn-primary"><span class="glyphicon glyphicon-remove-circle"></span> No</button>
+            </div>
+            <script>
+            function goBack() {
+                window.history.back();
+            }
+            </script>
+        </div>
+    </div><!--/Container-->
+{% endblock specific %}

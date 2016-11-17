@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+{% block title %}Posamezno sporocilo{% endblock title %}
+
+{% block specific %}
+<section class="container">
+    <div class="panel panel-primary">
+        <div class="panel-heading">
+            <h2 class="panel-title" >Podatki sporočila</h2>
+        </div>
+        <div class="panel-body">
+            <p>Ime in Priimek: {{ sporocilo.ime_priimek}}</p>
+            <p>Email: {{ sporocilo.email }}</p>
+            <p>ID sporocila: {{ sporocilo.key.id()}}</p>
+
+            <p>Vnos sporocila: {{ sporocilo.tekst }}</p>
+            <p>Datum sporocila: {{ sporocilo.nastanek }} </p>
+        </div>
+        <p>
+            <a class="btn btn-primary" href="/sporocilo/{{ sporocilo.key.id() }}/uredi"> Uredi</a>
+            <a class="btn btn-primary" href="/sporocilo/{{ sporocilo.key.id() }}/{{ arhiv }}"> {{arhiv|title}}</a>
+            <a class="btn btn-primary" href="/sporocilo/{{ sporocilo.key.id() }}/odstrani"> Odstrani</a></p>
+            <a class="btn btn-primary" href="/seznam_sporocil"> Vsa sporočila</a>
+    </div>
+</section>
+{% endblock specific %}
